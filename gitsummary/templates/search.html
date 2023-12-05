@@ -4,47 +4,49 @@
         <p>{{ error }}</p>
     {% else %}
         {% if not current_user.is_authenticated %}
-            <div class="container search_controller">
-                <div id="flash">
+        <div class="containers">
+                <div class="container search_controller">
+                    <div id="flash">
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <p>
+                            Logged in users are able to save repositories and come back to them later
+                        </p>
+                        <p>
+                            <a href="{{ url_for('users.register') }}">Sign up</a> or
+                            <a href="{{ url_for('users.login') }}">Login</a>
+                        </p>
+                    </div>
                 </div>
-                <div class="alert alert-success" role="alert">
-                    <p>
-                        Logged in users are able to save repositories and come back to them later
-                    </p>
-                    <p>
-                        <a href="{{ url_for('users.register') }}">Sign up</a> or
-                        <a href="{{ url_for('users.login') }}">Login</a>
-                    </p>
-                </div>
-            </div>
-        {% endif %}
-        <div class="container mt-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-10">
-                    <div class="card p-3  py-4">
-                        <h5>A Github search engine</h5>
-                        <form id="dynamic_post" action="" method="post">
-                            <div class="row g-3 mt-2">
-                                <div class="col-md-3">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Select search type
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#" data-search-type="users">Users</a></li>
-                                            <li><a class="dropdown-item" href="#" data-search-type="repositories">Repositories</a></li>
-                                        </ul>
+            {% endif %}
+            <div class="container mt-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-10">
+                        <div class="card p-3  py-4">
+                            <h5>A Github search engine</h5>
+                            <form id="dynamic_post" action="" method="post">
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-3">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Select search type
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="#" data-search-type="users">Users</a></li>
+                                                <li><a class="dropdown-item" href="#" data-search-type="repositories">Repositories</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="search_query" class="form-control" placeholder="Search for a User or a Repository">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="hidden" name="search_type" value="">
+                                        <button class="btn btn-secondary btn-block">Search Results</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="search_query" class="form-control" placeholder="Search for a User or a Repository">
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="hidden" name="search_type" value="">
-                                    <button class="btn btn-secondary btn-block">Search Results</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

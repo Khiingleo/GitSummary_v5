@@ -1,39 +1,41 @@
 {% extends 'index.html' %}
 {% block content %}
-    <div class="content-section">
-        <h4>Your Saved Repositories</h4>
-        <ul class="list-group">
-            {% for saved_repo in saved_repos %}
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">{{ repo_data_list[loop.index0]['owner']['login'] }}'s {{ saved_repo.repository_name }}</div>
-                        <small><a style="text-decoration: none;" href="{{ saved_repo.repository_url }}" target="_blank">Github</a></small>
-                    </div>
-                    <span class="badge">
-                        <button type="button" class="btn btn-secondary btn-sm"><a style="color: white; text-decoration: none;" href="{{ url_for('repos.view_saved_repository', repo_id=saved_repo.id) }}">View Details</a></button>
-                    </span>
-                    <span class="badge">
-                        <button type="button" class="btn btn-danger btn-sm"><a style="color: white; text-decoration: none;" href="{{ url_for('repos.delete_saved_repository', repo_id=saved_repo.id) }}">Delete</a></button>
-                    </span>
-                </li>
-            {% endfor %}
-        </ul>
-        </br>
-        <!-- Pagination Controls -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                {% if saved_repos.has_prev %}
-                    <li class="page-item"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=saved_repos.prev_num) }}">Previous</a></li>
-                {% endif %}
-                
-                {% for num in saved_repos.iter_pages() %}
-                    <li class="page-item {% if num == saved_repos.page %}active{% endif %}"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=num) }}">{{ num }}</a></li>
+    <div class="containers">
+        <div class="content-section">
+            <h4>Your Saved Repositories</h4>
+            <ul class="list-group">
+                {% for saved_repo in saved_repos %}
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{ repo_data_list[loop.index0]['owner']['login'] }}'s {{ saved_repo.repository_name }}</div>
+                            <small><a style="text-decoration: none;" href="{{ saved_repo.repository_url }}" target="_blank">Github</a></small>
+                        </div>
+                        <span class="badge">
+                            <button type="button" class="btn btn-secondary btn-sm"><a style="color: white; text-decoration: none;" href="{{ url_for('repos.view_saved_repository', repo_id=saved_repo.id) }}">View Details</a></button>
+                        </span>
+                        <span class="badge">
+                            <button type="button" class="btn btn-danger btn-sm"><a style="color: white; text-decoration: none;" href="{{ url_for('repos.delete_saved_repository', repo_id=saved_repo.id) }}">Delete</a></button>
+                        </span>
+                    </li>
                 {% endfor %}
-                
-                {% if saved_repos.has_next %}
-                    <li class="page-item"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=saved_repos.next_num) }}">Next</a></li>
-                {% endif %}
             </ul>
-        </nav>
+            </br>
+            <!-- Pagination Controls -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if saved_repos.has_prev %}
+                        <li class="page-item"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=saved_repos.prev_num) }}">Previous</a></li>
+                    {% endif %}
+                    
+                    {% for num in saved_repos.iter_pages() %}
+                        <li class="page-item {% if num == saved_repos.page %}active{% endif %}"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=num) }}">{{ num }}</a></li>
+                    {% endfor %}
+                    
+                    {% if saved_repos.has_next %}
+                        <li class="page-item"><a class="page-link" href="{{ url_for('repos.saved_repositories', page=saved_repos.next_num) }}">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
 {% endblock content %}

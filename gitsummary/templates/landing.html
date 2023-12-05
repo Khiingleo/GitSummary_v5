@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="landing-page">
+        <div class="landing-content">
+            <h3 class="landing-text">
+                Gitsummary is a Github profile and repository search engine that allows you to search for a user by using a github username and 
+                and also search for a repository by using a github username and repository name
+            </h4>
+            <button type="button" class="btn btn-secondary">
+                <a href="{{ url_for('main.homepage') }}">Search Now</a>
+            </button>
+        </div>
+    </div>
+{% endblock content %}

@@ -13,12 +13,19 @@ load_dotenv()
 
 @main.route('/home')
 @main.route('/', strict_slashes=False)
-def homepage():
+def landing():
     """The home page of the gitsummary test version 2"""
+    try:
+        return render_template('landing.html')
+    except Exception as e:
+        return render_template('search.html', error='unexpected error occured')
+
+@main.route('/search')
+def homepage():
     try:
         return render_template('search.html')
     except Exception as e:
-        return render_template('search.html', error='unexpected error occured')
+        return render_template('search.html', error=f"an unexcpected error occured {e}")
 
 
 @main.route('/about', strict_slashes=False)

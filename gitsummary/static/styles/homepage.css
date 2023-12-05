@@ -10,7 +10,13 @@
 }
 
 .my_block {
-    max-width: 1100px;
+    max-width: 100%;
+    /* margin: 0 auto;
+    padding: 20px; */
+}
+
+.containers {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -122,4 +128,30 @@ a.article-title:hover {
 }
 .account-heading {
     font-size: 2.5rem;
+}
+
+.landing-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+    height: calc(100vh - 10px); /* Subtract the height of your navbar */
+    background-image: url("/static/images/landing.png");
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+}
+
+.landing-content {
+    padding-top: 90px;
+    max-width: 50%;
+    color: white;
+}
+.landing-content a {
+    text-decoration: none;
+    color: white;
+}
+.landing-text {
+    padding-bottom: 80px;
 }

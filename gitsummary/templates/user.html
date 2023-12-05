@@ -3,42 +3,44 @@
     {% if error %}
         <p>{{ error }}</p>
     {% else %}
-        {% if user_data.name %}
-            <h6><i>{{ user_data.name }}'s Github Profile</i></h6>
-        {% else %}
-            <h6><i>{{ username }}'s Github Profile</i></h6>
-        {% endif %}
-        <section class="vh-60" style="background-color: #adc2ca;">
-            <div class="container py-3 h-75">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col col-md-8 col-lg-6 col-xl-4">
-                        <div class="card" style="border-radius: 15px;">
-                            <div class="card-body p-3">
-                                <div class="d-flex text-black">
-                                    <div class="flex-shrink-0">
-                                        <img src="{{ user_data.avatar_url }}"
-                                        alt="Profile Image" class="img-fluid"
-                                        style="width: 110px; border-radius: 10px;">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        {% if user_data.name %}
-                                            <h5 class="mb-1">{{ user_data.name }}</h5>
-                                        {% else %}
-                                            <h5 class="mb-1">{{ username }}</h5>
-                                        {% endif %}
-                                        <p class="mb-2 pb-1" style="color: #2b2a2a;">Github {{ user_data.type }}</p>
-                                        <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #efefef;">
-                                            <div>
-                                                <p class="small text-muted mb-1">Repositories</p>
-                                                <p class="mb-0">{{ user_data.public_repos }}</p>
-                                            </div>
-                                            <div class="px-3">
-                                                <p class="small text-muted mb-1">followers</p>
-                                                <p class="mb-0">{{ user_data.followers }}</p>
-                                            </div>
-                                            <div>
-                                                <p class="small text-muted mb-1">Date Created</p>
-                                                <p class="mb-0">{{ user_data.created_at }}</p>
+        <div class="containers">
+            {% if user_data.name %}
+                <h6><i>{{ user_data.name }}'s Github Profile</i></h6>
+            {% else %}
+                <h6><i>{{ username }}'s Github Profile</i></h6>
+            {% endif %}
+            <section class="vh-60" style="background-color: #adc2ca;">
+                <div class="container py-3 h-75">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col col-md-8 col-lg-6 col-xl-4">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-3">
+                                    <div class="d-flex text-black">
+                                        <div class="flex-shrink-0">
+                                            <img src="{{ user_data.avatar_url }}"
+                                            alt="Profile Image" class="img-fluid"
+                                            style="width: 110px; border-radius: 10px;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            {% if user_data.name %}
+                                                <h5 class="mb-1">{{ user_data.name }}</h5>
+                                            {% else %}
+                                                <h5 class="mb-1">{{ username }}</h5>
+                                            {% endif %}
+                                            <p class="mb-2 pb-1" style="color: #2b2a2a;">Github {{ user_data.type }}</p>
+                                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                                                <div>
+                                                    <p class="small text-muted mb-1">Repositories</p>
+                                                    <p class="mb-0">{{ user_data.public_repos }}</p>
+                                                </div>
+                                                <div class="px-3">
+                                                    <p class="small text-muted mb-1">followers</p>
+                                                    <p class="mb-0">{{ user_data.followers }}</p>
+                                                </div>
+                                                <div>
+                                                    <p class="small text-muted mb-1">Date Created</p>
+                                                    <p class="mb-0">{{ user_data.created_at }}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -47,51 +49,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <br/>
-        <div class="content-section">
-            {% if user_data.frequently_committed_repos %}
-                <h6><i>Frequently Committed Repositories</i></h6>
-                {% for repo in user_data.frequently_committed_repos %}
-                    <div class="list-group">
-                        <a href="{{ repo.html_url }}" target="_blank" class="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">{{ repo.name }}</h5>
-                                <small>{{ repo.updated_at }}</small>
-                            </div>
-                            <p class="mb-1">{{ repo.description }}</p>
-                            <small>stargazers count: {{ repo.stargazers_count }}</small>
-                        </a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-        <br/>
-        <div class="content-section">
-            {% if user_data.most_used_languages %}
-                <h6><i>Most Used Languages</i></h6>
-                <ul class="list-group">
-                    {% for lang in user_data.most_used_languages %}
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            {{ lang.language }}
-                            <span class="badge bg-primary rounded-pill">Repositories: {{ lang.count }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-        <br/>
-        <button id="showReposBtn" class="btn btn-secondary">Show All Repositories</button>
-        <div class="content-section" id="reposContainer" style="display: none;">
-            {% if user_data.name %}
-                <h4><i>{{user_data.name}}'s Repositories:</i></h4>
-            {% else %}
-                <h4><i>{{ usernamme }}'s Reposiories</i></h4>
-            {% endif %}
-            <ul>
-                {% if repos_data %}
-                    {% for repo in repos_data %}
+            </section>
+            <br/>
+            <div class="content-section">
+                {% if user_data.frequently_committed_repos %}
+                    <h6><i>Frequently Committed Repositories</i></h6>
+                    {% for repo in user_data.frequently_committed_repos %}
                         <div class="list-group">
                             <a href="{{ repo.html_url }}" target="_blank" class="list-group-item list-group-item-action" aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
@@ -99,14 +62,53 @@
                                     <small>{{ repo.updated_at }}</small>
                                 </div>
                                 <p class="mb-1">{{ repo.description }}</p>
-                                <small><a style="text-decoration: none;" href="{{ url_for('main.search_repos', username=username, repository=repo.name) }}">view {{ repo.name }} on GitSummary</a></small>
+                                <small>stargazers count: {{ repo.stargazers_count }}</small>
                             </a>
                         </div>
                     {% endfor %}
-                {% else %}
-                        <p>No Repositories Available</p>
                 {% endif %}
-            </ul>
+            </div>
+            <br/>
+            <div class="content-section">
+                {% if user_data.most_used_languages %}
+                    <h6><i>Most Used Languages</i></h6>
+                    <ul class="list-group">
+                        {% for lang in user_data.most_used_languages %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ lang.language }}
+                                <span class="badge bg-primary rounded-pill">Repositories: {{ lang.count }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <br/>
+            <button id="showReposBtn" class="btn btn-secondary">Show All Repositories</button>
+            <div class="content-section" id="reposContainer" style="display: none;">
+                {% if user_data.name %}
+                    <h4><i>{{user_data.name}}'s Repositories:</i></h4>
+                {% else %}
+                    <h4><i>{{ usernamme }}'s Reposiories</i></h4>
+                {% endif %}
+                <ul>
+                    {% if repos_data %}
+                        {% for repo in repos_data %}
+                            <div class="list-group">
+                                <a href="{{ repo.html_url }}" target="_blank" class="list-group-item list-group-item-action" aria-current="true">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{ repo.name }}</h5>
+                                        <small>{{ repo.updated_at }}</small>
+                                    </div>
+                                    <p class="mb-1">{{ repo.description }}</p>
+                                    <small><a style="text-decoration: none;" href="{{ url_for('main.search_repos', username=username, repository=repo.name) }}">view {{ repo.name }} on GitSummary</a></small>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                            <p>No Repositories Available</p>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     {% endif %}
 {% endblock content %}
