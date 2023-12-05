@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <div class="container">
+            {% if searched_data is defined %}
+                <h4>GitHub Repository Details</h4>
+                <!-- <p><strong>Repository Name:</strong> {{ searched_data.name }}</p>
+                <p><strong>Owner:</strong> {{ searched_data.owner.login }}</p>
+                <p><strong>Description:</strong> {{ searched_data.description }}</p>
+                <p><strong>Stars:</strong> {{ searched_data.stargazers_count }}</p> -->
+                <div class="card mb-3" style="max-width: 1200px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ searched_data.owner.avatar_url }}" class="img-fluid rounded-start" alt="owner profile picture">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ searched_data.name }}</h5>
+                                <h6 class="card-text">By {{ searched_data.owner.login }}</h6>
+                                <p class="card-text">{{ searched_data.description }}</p>
+                                <p class="card-text"><small class="text-muted">Stars: {{ searched_data.stargazers_count }}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="content-section">
+                    <h5><i>Files and Folders in the Repository</i></h5>
+                    <ul id="fileList" class="list-group">
+                        {% for file in content_data %}
+                            <li class="list-group-item">
+                                {% if file.type == 'file' %}
+                                    <span><b>File</b>: <i>{{ file.path }} </i></span>
+                                    <button type="button" class="showContentBtn btn btn-outline-secondary" data-url="{{ file.download_url }}">Show Content</button>
+                                {% elif file.type == 'dir' %}
+                                    <span><b>Folder</b>: <i>{{ file.path }}</i></span>
+                                    <button type="button"  class="exploreFolderBtn btn btn-outline-primary" data-url="{{ file.url }}">Explore Folder</button>
+                                    <div class="nestedContents" style="margin-left: 20px;"></div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <br/>
+                <div class="content_display" id="fileContent"></div>
+                <br/>
+                {% if current_user.is_authenticated and not is_saved and is_saved is none %}
+                    <form method="POST" action="{{ url_for('repos.save_repository') }}">
+                        <input type="hidden" name="repository_name" value="{{ searched_data.name }}">
+                        <input type="hidden" name="repository_url" value="{{ searched_data.html_url }}">
+                        <input type="hidden" name="url" value="{{ searched_data.url }}">
+                        <button type="submit" class="btn btn-secondary">Save Repository</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+            <!-- <div class="content_display" id="fileContent"></div> -->
+        </div>
+    {% endif %}
+{% endblock content %}

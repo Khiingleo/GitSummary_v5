@@ -1,0 +1,125 @@
+/* @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css); */
+#my_body {
+    background-color: rgb(214, 214, 214);;
+}
+.input_username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.my_block {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search_controller {
+    color: gray;
+    border-radius: 10px;
+
+}
+.search_controller a {
+    text-decoration: none;
+}
+
+.usr_input {
+    width: 400px;
+    height: 26px;
+    box-shadow: 1px 3px 3px 1px rgba(0,0,0,0.5);
+}
+.enter {
+    box-sizing: border-box;
+    box-shadow: 2px 3px 3px 1px rgba(0,0,0,0.5);
+    height: 26px;
+    text-align: center;
+    margin: auto;
+}
+.search_select {
+    box-shadow: 1px 3px 3px 1px rgba(0,0,0,0.5);
+}
+#fileContent {
+    max-height: 400px; /* Adjust the max height as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd; /* Add a border for better visibility */
+    padding: 10px;
+    background-color: rgb(216, 230, 228);
+    border-radius: 4px;
+}
+
+/* .search_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: rgb(168, 168, 168);
+} */
+
+.advanced{
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+.btn-secondary,
+.btn-secondary:focus,
+.btn-secondary:active
+
+
+ {
+    color: #fff;
+    background-color: #00838f !important;
+    border-color: #00838f !important;
+    box-shadow: none;
+}
+
+
+.advanced{
+
+    color: #00838f !important;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border: 1px solid #00838f;
+
+
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.article-title {
+    color: #444444;
+}
+
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+  
+.article-content {
+    white-space: pre-line;
+}
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+.account-heading {
+    font-size: 2.5rem;
+}
