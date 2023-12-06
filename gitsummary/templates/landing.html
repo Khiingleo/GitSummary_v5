@@ -1,14 +1,50 @@
 {% extends 'index.html' %}
 {% block content %}
-    <div class="landing-page">
-        <div class="landing-content">
-            <h3 class="landing-text">
-                Gitsummary is a Github profile and repository search engine that allows you to search for a user by using a github username and 
-                and also search for a repository by using a github username and repository name
-            </h4>
-            <button type="button" class="btn btn-secondary">
-                <a href="{{ url_for('main.homepage') }}">Search Now</a>
-            </button>
+  <div class="landing-page">
+    <div class="landing-header">
+      <div class="landing-row">
+        <div class="col-2">
+          <h1>GitSummary</h1>
+          <h5>GitSummary is a github profile and repository search engine that allows you to search <br/>for any profile or repository you might be interested in</h5>
         </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-secondary btn-lg">
+            <a href="{{ url_for('main.homepage') }}">Search Now</a>
+          </button>
+        </div>
+      </div>
     </div>
+    <div class="item-func">
+      <div class="small-container">
+        <div class="landing-row">
+            <div class="col-2">
+              <h3>Search User</h3>
+              <p>Gitsummary allows you to search for a github user and get information about
+                the searched user including their most used languages and their frequently committed repositories
+              </p>
+            </div>
+            <div class="col-2">
+              <img src="/static/images/github_user.jpg" class="item-img" alt="">
+            </div>
+        </div>
+        <div class="landing-row">
+          <div class="col-2">
+            <img src="/static/images/search_repository.jpg" class="item-img" alt="">
+          </div>
+          <div class="col-2">
+            <h3>Search Repository</h3>
+            <p>Gitsummary allows you to search for a github user's repository
+              and view the contents of the repository. logged in users are able to save repositories
+              and come back to view them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-dark" href="https://github.com/Khiingleo/GitSummary_v5">Github</a>
+  </div>
+  <!-- Copyright -->
 {% endblock content %}

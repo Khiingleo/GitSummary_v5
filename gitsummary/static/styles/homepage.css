@@ -1,4 +1,4 @@
-/* @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 #my_body {
     background-color: rgb(214, 214, 214);;
 }
@@ -131,27 +131,55 @@ a.article-title:hover {
 }
 
 .landing-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    margin: auto;
-    width: 100%;
-    height: calc(100vh - 10px); /* Subtract the height of your navbar */
-    background-image: url("/static/images/landing.png");
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the background image */
+    background-color: white;
 }
 
-.landing-content {
+.landing-header {
+    background-image: url("/static/images/landing.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.landing-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 100%;
+    color: white;
+    /* height: 100vh; */
+}
+
+.col-2 {
     padding-top: 90px;
-    max-width: 50%;
-    color: white;
+    flex-basis: 50%;
+    min-width: 300px;
+    padding-bottom: 250px;
 }
-.landing-content a {
+
+.col-2 h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+.col-2 img {
+    width: 100%;
+}
+
+.btn a {
+    color: white;
     text-decoration: none;
-    color: white;
 }
-.landing-text {
-    padding-bottom: 80px;
+
+.item-func {
+    background: linear-gradient(to right, #04040404, #000000, #65656565);
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.item-img {
+    padding: 50px;
+    border-radius: 10px;
 }
