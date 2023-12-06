@@ -5,38 +5,52 @@
       <div class="landing-row">
         <div class="col-2">
           <h1>GitSummary</h1>
-          <h5>GitSummary is a github profile and repository search engine that allows you to search <br/>for any profile or repository you might be interested in</h5>
-        </div>
-        <div class="col-2">
+          <p>GitSummary is a github profile and repository search engine that allows you to search <br/>for any profile or repository you might be interested in</p>
+
           <button type="button" class="btn btn-secondary btn-lg">
             <a href="{{ url_for('main.homepage') }}">Search Now</a>
           </button>
         </div>
+        <div class="col-2">
+          <img src="static/images/icon.png" alt="logo">
+        </div>
+      </div>
+    </div>
+    <div class="landing-row" style="padding: 10px; margin: 10px;">
+      <div class="col-2" style="padding-bottom: 5px; padding-top: 0px;">
+        <h2> A GitHub Search Engine </h2>
+      </div>
+      <div class="col-2" style="padding-bottom: 5px; padding-top: 0px;">
+        <button type="button" class="btn btn-secondary btn-lg">
+        <a href="{{ url_for('users.register') }}">Sign Up Now</a>
+      </button>
       </div>
     </div>
     <div class="item-func">
       <div class="small-container">
-        <div class="landing-row">
-            <div class="col-2">
-              <h3>Search User</h3>
-              <p>Gitsummary allows you to search for a github user and get information about
-                the searched user including their most used languages and their frequently committed repositories
-              </p>
-            </div>
-            <div class="col-2">
-              <img src="/static/images/github_user.jpg" class="item-img" alt="">
-            </div>
-        </div>
+        <h2 style="text-align: center; padding-top: 40px;">Our Features</h2>
         <div class="landing-row">
           <div class="col-2">
-            <img src="/static/images/search_repository.jpg" class="item-img" alt="">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/static/images/search_repository.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">
+                  <h4>Search repository</h4>
+                  GitSummary allows it's users to search for a repository and view it's contents
+                </p>
+              </div>
+            </div>
           </div>
           <div class="col-2">
-            <h3>Search Repository</h3>
-            <p>Gitsummary allows you to search for a github user's repository
-              and view the contents of the repository. logged in users are able to save repositories
-              and come back to view them.
-            </p>
+            <div class="card" style="width: 18rem;">
+              <img style="height: 100%;" class="card-img-top" src="/static/images/github_user.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">
+                  <h4>Search users</h4>
+                  Gitsummary allows it's users to search for a github users profile and view it's details
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

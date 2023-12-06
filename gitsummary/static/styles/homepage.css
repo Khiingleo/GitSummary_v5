@@ -135,7 +135,7 @@ a.article-title:hover {
 }
 
 .landing-header {
-    background-image: url("/static/images/landing.png");
+    background: #E5E6E4;
     background-size: cover;
     background-position: center;
 }
@@ -147,7 +147,7 @@ a.article-title:hover {
     flex-wrap: wrap;
     margin: auto;
     width: 100%;
-    color: white;
+    color: black;
     /* height: 100vh; */
 }
 
@@ -155,7 +155,7 @@ a.article-title:hover {
     padding-top: 90px;
     flex-basis: 50%;
     min-width: 300px;
-    padding-bottom: 250px;
+    padding-bottom: 40px;
 }
 
 .col-2 h1 {
@@ -174,9 +174,10 @@ a.article-title:hover {
 }
 
 .item-func {
-    background: linear-gradient(to right, #04040404, #000000, #65656565);
-    margin-top: 80px;
-    padding: 30px 0;
+    background: #BFBFFF;  
+    margin-top: 20px;
+    /* padding: 30px 0; */
+    padding-bottom: 30px;
 }
 
 .item-img {
